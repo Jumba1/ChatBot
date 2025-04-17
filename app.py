@@ -1,10 +1,5 @@
 import streamlit as st
 import openai
-from streamlit_webrtc import webrtc_streamer, AudioProcessorBase
-import speech_recognition  as sr
-import numpy as np
-import av
-
 import streamlit.components.v1 as components
 
 st.set_page_config(page_title="Jim's AI Chatbot", page_icon="🤖", layout="centered")
