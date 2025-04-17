@@ -1,7 +1,7 @@
 import streamlit as st
 import openai
 from streamlit_webrtc import webrtc_streamer, AudioProcessorBase
-import speech_recognition as sr
+import speech_recognition  as sr
 import numpy as np
 import av
 
