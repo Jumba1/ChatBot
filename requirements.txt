@@ -1,5 +1,3 @@
 streamlit
 openai
-streamlit-webrtc
-SpeechRecognition
-pyaudio
+streamlit-speech-to-text

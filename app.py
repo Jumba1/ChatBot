@@ -5,6 +5,8 @@ import speech_recognition  as sr
 import numpy as np
 import av
 
+from streamlit_speech_to_text import speech_to_text
+
 st.set_page_config(page_title="Jim's AI Chatbot", page_icon="🤖", layout="centered")
 
 st.title("🤖 Jim's AI Chatbot")
@@ -42,41 +44,12 @@ for msg in st.session_state.messages[1:]:
 
 # --- Voice Input Section ---
 st.subheader("🎤 Voice Input (Optional)")
-if "voice_input" not in st.session_state:
-    st.session_state.voice_input = ""
-
-class AudioProcessor(AudioProcessorBase):
-    def recv(self, frame):
-        audio = frame.to_ndarray()
-        st.session_state.audio_data = audio
-        return av.AudioFrame.from_ndarray(audio, layout="mono")
-
-audio_ctx = webrtc_streamer(
-    key="speech-to-text",
-    mode="SENDRECV",
-    audio_receiver_size=1024,
-    client_settings={"media_stream_constraints": {"audio": True, "video": False}},
-    async_processing=True,
-)
-
-voice_text = ""
-if audio_ctx and audio_ctx.audio_receiver:
-    audio_frames = audio_ctx.audio_receiver.get_frames(timeout=1)
-    if audio_frames:
-        audio = b"".join([f.to_ndarray().tobytes() for f in audio_frames])
-        recognizer = sr.Recognizer()
-        try:
-            with sr.AudioFile(sr.io.BytesIO(audio)) as source:
-                audio_data = recognizer.record(source)
-                voice_text = recognizer.recognize_google(audio_data)
-                st.session_state.voice_input = voice_text
-                st.success(f"Transcribed: {voice_text}")
-        except Exception as e:
-            st.warning(f"Voice input error: {e}")
+voice_text = speech_to_text()
+if voice_text:
+    st.success(f"Transcribed: {voice_text}")
 
 # Chat input
-user_input = st.session_state.voice_input or st.chat_input("Type your message...")
-st.session_state.voice_input = ""  # Reset after use
+user_input = voice_text or st.chat_input("Type your message...")
 
 if user_input:
     # Add user message to history
