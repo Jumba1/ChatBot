@@ -3,9 +3,9 @@ import openai
 
 st.set_page_config(page_title="ChatGPT-Style AI Chatbot", page_icon="🤖", layout="centered")
 
-st.title("🤖 ChatGPT-Style AI Chatbot")
+st.title("🤖 Jim's AI Chatbot")
 st.markdown(
-    "A conversational AI chatbot powered by OpenAI's gpt-4o-mini. "
+    "Powered by OpenAI's gpt-4o-mini. "
     "Enter your OpenAI API key to get started."
 )
 
