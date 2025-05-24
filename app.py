@@ -4,8 +4,7 @@ import openai
 st.set_page_config(page_title="Shoot the Bull with Striped Horse", page_icon="🦓", layout="centered")
 
 st.title("🦓 Shoot the Bull with Striped Horse")
-st.markdown(
-    "Powered by OpenAI's gpt-4o-mini."
+
 )
 
 # Get API key from secrets
