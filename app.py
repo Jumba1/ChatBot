@@ -1,7 +1,7 @@
 import streamlit as st
 import openai
 
-st.set_page_config(page_title="Shoot the Bull with Striped Horse", page_icon="🦓", layout="centered")
+st.set_page_config(page_title="Shoot the Bull", page_icon="🦓", layout="centered")
 
 st.title("🦓 Shoot the Bull with Striped Horse")
 
