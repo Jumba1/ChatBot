@@ -1,9 +1,9 @@
 import streamlit as st
 import openai
 
-st.set_page_config(page_title="Jim's AI Chatbot", page_icon="🤖", layout="centered")
+st.set_page_config(page_title="Shoot the Bull with Striped Horse", page_icon="🦓", layout="centered")
 
-st.title("🤖 Jim's AI Chatbot")
+st.title("🦓 Shoot the Bull with Striped Horse")
 st.markdown(
     "Powered by OpenAI's gpt-4o-mini."
 )
