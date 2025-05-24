@@ -5,7 +5,7 @@ st.set_page_config(page_title="Shoot the Bull", page_icon="🦓", layout="center
 
 st.title("🦓 Shoot the Bull")
 
-st.markdown("Hola, eita, shap, awe, howzit. LEt's talk about the bull in SA and the world.")
+st.markdown("Hola, eita, shap, awe, howzit. Let's talk about the bull in SA and the world.")
 
 # Get API key from secrets
 try:
