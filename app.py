@@ -6,25 +6,16 @@ st.set_page_config(page_title="Jim's AI Chatbot", page_icon="🤖", layout="cent
 
 st.title("🤖 Jim's AI Chatbot")
 st.markdown(
-    "Powered by OpenAI's gpt-4o-mini. "
-    "Enter your OpenAI API key to get started."
+    "Powered by OpenAI's gpt-4o-mini."
 )
 
-# Sidebar for API key input
-with st.sidebar:
-    st.header("OpenAI API Key")
-    api_key = st.text_input(
-        "Paste your OpenAI API key here",
-        type="password",
-        placeholder="sk-...",
-        help="Your key is only stored in this session and never sent anywhere else."
-    )
-
-if not api_key:
-    st.info("Please enter your OpenAI API key in the sidebar to start chatting.")
+# Get API key from secrets
+try:
+    api_key = st.secrets["OPENAI_API_KEY"]
+    openai.api_key = api_key
+except KeyError:
+    st.error("OpenAI API key not found in secrets. Please add OPENAI_API_KEY to your secrets.toml file.")
     st.stop()
-
-openai.api_key = api_key
 
 # Initialize chat history
 if "messages" not in st.session_state:
