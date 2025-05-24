@@ -3,7 +3,7 @@ import openai
 
 st.set_page_config(page_title="Shoot the Bull with Striped Horse", page_icon="🦓", layout="centered")
 
-st.markdown("<h1 style='font-size: 75%;'>🦓 Shoot the Bull with Striped Horse</h1>", unsafe_allow_html=True)
+st.markdown("🦓 Shoot the Bull with Striped Horse")
 
 st.markdown("Hola people, what's happening? Let's talk about the bull.")
 
